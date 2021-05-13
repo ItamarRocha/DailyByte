@@ -35,4 +35,4 @@ def palindrom_w_removal(string):
 
 print(palindrom_w_removal("abcba"))
 print(palindrom_w_removal("foobof"))
-print(palindrom_w_removal("abccab"))
+print(palindrom_w_removal("abccab")) 
