@@ -9,9 +9,12 @@ Note: An anagram is a word formed by reordering the letters of another word.
     s = "program", t = "function", return false
 """
 
-# Time O(s + t) -> s being length of s | t -> length of t
+# Time O(s) -> s being length of s
 # Space O(s)
 def valid_anagram(s,t):
+    if len(s) != len(t):
+        return False
+
     s_char_count = {}
 
     for el in s:
