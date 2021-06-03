@@ -19,17 +19,17 @@ class callCounter():
     def count_last3(self, current):
         low_interval = current - 3000
         low_interval = low_interval if low_interval >= 0 else 0
-        returned = []
+        counter = 0
 
         for value in self.pings:
             if low_interval <= value <= current:
-                returned.append(value)
+                counter += 1
         
-        return returned
+        return counter
 
     def ping(self, time):
         self.pings.add(time)
-        return len(self.count_last3(time))
+        return self.count_last3(time)
     
 cc = callCounter()
 
