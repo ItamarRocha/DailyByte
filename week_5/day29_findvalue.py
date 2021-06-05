@@ -30,7 +30,7 @@ class BST():
         self.right = None
         self.left = None
 
-# Time O(n)
+# Time O(n) | can be O(log n) if balanced
 # Space O(n) | can be O(h) if balanced 
 def find_value(root, value):
     if root == None:
