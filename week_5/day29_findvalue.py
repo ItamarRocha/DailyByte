@@ -31,15 +31,48 @@ class BST():
         self.left = None
 
 # Time O(n)
-# Space O(n) | can be O(h) if balanced tree
+# Space O(n) | can be O(h) if balanced 
 def find_value(root, value):
     if root == None:
         return None
     
     if value > root.value:
-        return find_value(root.right)
+        return find_value(root.right, value)
     elif value < root.value:
-        return find_value(root.left)
+        return find_value(root.left, value)
     
-    return value
+    return root
 
+#     3
+#    / \
+#   1   4
+
+bst = BST(3)
+bst.left = BST(1)
+bst.right = BST(4)
+
+print(find_value(bst, 1).value)
+
+#     7
+#    / \
+#   5   9
+#      / \ 
+#     8   10
+
+bst = BST(7)
+bst.left = BST(5)
+bst.right = BST(9)
+bst.right.left = BST(8)
+bst.right.right = BST(10)
+
+print(find_value(bst, 9).value)
+
+#     8
+#    / \
+#   6   9
+
+bst = BST(8)
+bst.left = BST(6)
+bst.right = BST(9)
+
+print(find_value(bst, 7))
