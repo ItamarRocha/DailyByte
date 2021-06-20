@@ -59,11 +59,42 @@ def roottoleafpaths(root, res=[], cur_str=""):
 
     return res
 
+# Time O(n²)
+# Time O(n)
+def roottoleafpaths(root):
+    output = []
+    binaryPaths(root, [], output)
+    return output
+
+def binaryPaths(root, currEl, output):
+    if root is None:
+        return
+
+    # add the root.val to currEl
+    currEl.append(str(root.value))
+
+    if root.left is None and root.right is None:
+        stringOutput = ''.join(currEl) 
+        output.append(stringOutput)
+        currEl.pop()
+        return 
+
+    currEl.append("->") 
+
+    if root.left:
+        binaryPaths(root.left, currEl, output)
+
+    if root.right:
+        binaryPaths(root.right, currEl, output)
+
+    currEl.pop()
+    currEl.pop()
+
 root = Tree(1)
 root.left = Tree(2)
 root.right = Tree(3)
 
-print(roottoleafpaths(root, res=[], cur_str=""))
+print(roottoleafpaths(root))
 
 root = Tree(8)
 root.left = Tree(2)
@@ -71,11 +102,11 @@ root.right = Tree(29)
 root.right.left = Tree(3)
 root.right.right = Tree(9)
 
-print(roottoleafpaths(root, res=[], cur_str=""))
+print(roottoleafpaths(root))
 
 root = Tree(1)
 root.left = Tree(2)
 root.left.right = Tree(5)
 root.right = Tree(3)
 
-print(roottoleafpaths(root, res=[], cur_str=""))
+print(roottoleafpaths(root))
