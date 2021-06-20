@@ -52,6 +52,30 @@ def gather_levels(root):
     
     return output
 
+def gather_levels(root):
+    output = [] 
+    
+    if root is None:
+        return output
+    
+    queue = deque()
+    queue.append(root) 
+    
+    while queue:
+        level_size = len(queue) 
+        arr_level = [] 
+        
+        for _ in range(level_size):
+            node = queue.popleft()
+            arr_level.append(node.value) 
+            
+            for i in range(len(node.children)):
+                queue.append(node.children[i]) 
+        
+        output.append(arr_level) 
+  
+    return output
+
 root = NaryTree(8)
 root.children.append(NaryTree(2))
 root.children.append(NaryTree(3))
