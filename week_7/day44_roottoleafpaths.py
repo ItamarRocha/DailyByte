@@ -59,7 +59,7 @@ def roottoleafpaths(root, res=[], cur_str=""):
 
     return res
 
-# Time O(n²)
+# Time O(n)
 # Time O(n)
 def roottoleafpaths(root):
     output = []
