@@ -16,7 +16,8 @@ Ex: digits = "23" return ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
 """
 
 d = {"0":None, "1":None, "2":"abc", "3":"def", "4":"ghi", "5":"jkl", "6":"mno", "7":"pqrs", "8":"tuv", "9":"wxyz"}
-
+# Time O(4^n)
+# Space O(4^n)
 def helper(string, i, cur_string, output):
     if i == len(string):
         output.append(cur_string)
