@@ -13,6 +13,9 @@ weights = [4, 2, 3, 3] and limit = 5 return 3
 """
 # Time O(nlogn)
 # Space O(1)
+
+# Time O(nlogn)
+# Space O(1)
 def count_liferafts(weights, limit):
     weights.sort()
 
@@ -20,35 +23,39 @@ def count_liferafts(weights, limit):
     cursor_2 = len(weights) - 1
 
     life_rafts = 0
-    
     current_count = 0
 
-    added_one = True
-    added_two = True
-
     while cursor_1 <= cursor_2:
-
         if current_count + weights[cursor_2] <= limit:
             current_count += weights[cursor_2]
             cursor_2 -= 1
-            added_one = True
-        else:
-            added_one = False
 
         if current_count + weights[cursor_1] <= limit:
             current_count += weights[cursor_1]
             cursor_1 += 1
-            added_two = True
-        else:
-            added_two = False
 
-        if not added_one and not added_two:
-            life_rafts += 1
-            current_count = 0
-    
-    if current_count > 0:
         life_rafts += 1
+        current_count = 0
+    
+    return life_rafts
 
+# Optimization
+def count_liferafts(weights, limit):
+    weights.sort()
+
+    cursor_1 = 0
+    cursor_2 = len(weights) - 1
+
+    life_rafts = 0
+
+    while cursor_1 <= cursor_2:
+        
+        if weights[cursor_2] + weights[cursor_1] <= limit:
+            cursor_1 += 1
+        cursor_2 -= 1
+
+        life_rafts += 1
+    
     return life_rafts
 
 print(count_liferafts([1, 3, 5, 2], 5)) # 3
@@ -56,3 +63,4 @@ print(count_liferafts([1, 2], 3)) # 1
 print(count_liferafts([4, 2, 3, 3], 5)) # 3
 print(count_liferafts([1,4,5,3,2], 5)) # 3
 print(count_liferafts([1,2,3,5,5,5,4], 5)) # 5
+print(count_liferafts([2,49,10,7,11,41,47,2,22,6,13,12,33,18,10,26,2,6,50,10], 50)) # 11
