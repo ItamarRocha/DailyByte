@@ -14,7 +14,7 @@ return [
 ]
 """
 # Time O(n^t) t = target
-# Space O(n)
+# Space O(???) 
 def unique_combinations(numbers, target):
     output = []
     combinations_generator(numbers,target,output)
