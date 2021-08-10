@@ -18,6 +18,8 @@ s = "xyz", return "xyz"
 
 using namespace std;
 
+// Time O(n)
+// Space O(n)
 string removing_vowels(string str){
     unordered_set <char> set = {'a', 'e', 'i', 'o', 'u'};
     string output;
