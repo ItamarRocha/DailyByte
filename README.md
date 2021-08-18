@@ -1,2 +1,5 @@
 # DailyByte
-Solutions to DailyByte https://thedailybyte.dev/
+My solutions to some of The Daily Byte exercises.
+
+https://thedailybyte.dev/
+
